@@ -190,10 +190,29 @@
     </p>
 
     <!-- Botões -->
-    <a class="button btn-ba" href="conteudo.html">Tenho mais de 18 anos</a>
+    <a class="button btn-ba"  onclick="redirecionar(event)">Tenho mais de 18 anos</a>
 
-<a class="button button-red btn-ba" href="conteudo.html">Não tenho 18 anos</a>
+<a class="button button-red btn-ba" onclick="redirecionar(event)">Não tenho 18 anos</a>
   </div>
 
+
+  <script>
+    function redirecionar(event) {
+            event.preventDefault(); // Previne o redirecionamento imediato
+    
+            const baseUrl = new URL('conteudo.html', window.location.origin);
+            const currentParams = new URLSearchParams(window.location.search);
+    
+            // Adicionar apenas os parâmetros que ainda não estão no link
+            for (const [key, value] of currentParams.entries()) {
+                if (!baseUrl.searchParams.has(key)) {
+                    baseUrl.searchParams.append(key, value);
+                }
+            }
+    
+            // Redirecionar preservando os parâmetros
+            window.location.href = baseUrl.toString();
+        }
+</script>
 
 </body></html>
