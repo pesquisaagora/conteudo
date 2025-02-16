@@ -6928,31 +6928,6 @@
 		})
 	}(); 
 </script>
-<script>
-	// ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-	const link = 'https://privacy-kamylazinha.fun/back01';
-  
-	function setBackRedirect(url) {
-	  let urlBackRedirect = url;
-	  urlBackRedirect = urlBackRedirect =
-		urlBackRedirect.trim() +
-		(urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-		document.location.search.replace('?', '').toString();
-  
-	  history.pushState({}, '', location.href);
-	  history.pushState({}, '', location.href);
-	  history.pushState({}, '', location.href);
-  
-	  window.addEventListener('popstate', () => {
-		console.log('onpopstate', urlBackRedirect);
-		setTimeout(() => {
-		  location.href = urlBackRedirect;
-		}, 1);
-	  });
-	}
-  
-	setBackRedirect(link);
-  </script>
   
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://vemaqui.online/ns.html?id=GTM-N2WMNTFP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
